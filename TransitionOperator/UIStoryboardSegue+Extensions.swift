@@ -16,7 +16,7 @@ extension UIStoryboardSegue {
     /*
      * You need pass TransitionOperator<Source = UIViewController, Destination = UIViewController>
      */
-    static var transitionOperator: TransitionOperatorType? {
+    public static var transitionOperator: TransitionOperatorType? {
         get {
             return objc_getAssociatedObject(self, &AssociatedObjectHandle) as? TransitionOperatorType
         }
@@ -25,7 +25,7 @@ extension UIStoryboardSegue {
         }
     }
     
-    var transitionOperator: TransitionOperatorType? {
+    public var transitionOperator: TransitionOperatorType? {
         get {
             return objc_getAssociatedObject(self, &AssociatedObjectHandle) as? TransitionOperatorType
         }

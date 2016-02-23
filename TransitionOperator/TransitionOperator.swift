@@ -8,23 +8,23 @@
 
 import Foundation
 
-protocol TransitionOperatorType: class {
+public protocol TransitionOperatorType: class {
     
     func operate(executor executor: Any, source: UIViewController, destination: UIViewController)
     
 }
 
-class TransitionOperator<Executor: Any, Source: UIViewController, Destination: UIViewController>: TransitionOperatorType {
+public class TransitionOperator<Executor: Any, Source: UIViewController, Destination: UIViewController>: TransitionOperatorType {
     
-    typealias Operation = (Executor, Source, Destination) -> ()
+    public typealias Operation = (Executor, Source, Destination) -> ()
     
     let operation: Operation
     
-    init(operation: Operation) {
+    public init(operation: Operation) {
         self.operation = operation
     }
     
-    func operate(executor executor: Any, source: UIViewController, destination: UIViewController) {
+    public func operate(executor executor: Any, source: UIViewController, destination: UIViewController) {
         operation(executor as! Executor, source as! Source, destination as! Destination)
     }
     
