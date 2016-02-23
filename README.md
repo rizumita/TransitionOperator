@@ -15,7 +15,6 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     switch sender {
     case let transitionOperator as TransitionOperatorType:
         segue.transitionOperator = transitionOperator
-        print(segue.transitionOperator)
     default: ()
     }
 }
