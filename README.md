@@ -15,7 +15,7 @@ class DestinationViewController: UIViewController {
 
 UIStoryboardSegue.transitionOperator = TransitionOperator { (segue: UIStoryboardSegue, _, _) in
     // Injecting dependencies by Swinject
-    //    segue.transitionOperator = assembler.resolver.resolve(segue.identifier!)
+    //    segue.transitionOperator = assembler.resolver.resolve(TransitionOperator.self, name: segue.identifier)
 }
 
 
