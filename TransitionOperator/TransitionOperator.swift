@@ -10,13 +10,13 @@ import Foundation
 
 protocol TransitionOperatorType: class {
     
-    func operate(source source: UIViewController, destination: UIViewController)
+    func operate(executor executor: Any, source: UIViewController, destination: UIViewController)
     
 }
 
-class TransitionOperator<Source: UIViewController, Destination: UIViewController>: TransitionOperatorType {
+class TransitionOperator<Executor: Any, Source: UIViewController, Destination: UIViewController>: TransitionOperatorType {
     
-    typealias Operation = (Source, Destination) -> ()
+    typealias Operation = (Executor, Source, Destination) -> ()
     
     let operation: Operation
     
@@ -24,8 +24,8 @@ class TransitionOperator<Source: UIViewController, Destination: UIViewController
         self.operation = operation
     }
     
-    func operate(source source: UIViewController, destination: UIViewController) {
-        operation(source as! Source, destination as! Destination)
+    func operate(executor executor: Any, source: UIViewController, destination: UIViewController) {
+        operation(executor as! Executor, source as! Source, destination as! Destination)
     }
     
 }

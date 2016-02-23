@@ -35,8 +35,8 @@ extension UIStoryboardSegue {
     }
     
     dynamic func performSwizzled() {
-        self.dynamicType.transitionOperator?.operate(source: sourceViewController, destination: destinationViewController)
-        transitionOperator?.operate(source: sourceViewController, destination: destinationViewController)
+        self.dynamicType.transitionOperator?.operate(executor: self, source: sourceViewController, destination: destinationViewController)
+        transitionOperator?.operate(executor: self, source: sourceViewController, destination: destinationViewController)
 
         performSwizzled()
     }
