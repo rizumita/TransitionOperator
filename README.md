@@ -4,6 +4,24 @@ Transition operator class operates transition from one view controller to other 
 ## Usage
 
 ```Swift
+func showNextPage() {
+    performSegueWithIdentifier("MySegue", sender: TransitionOperator {
+        (e: UIStoryboardSegue, s: SourceViewController, d: DestinationViewController) in
+        d.id = s.id
+    })
+}
+
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    switch sender {
+    case let transitionOperator as TransitionOperatorType:
+        segue.transitionOperator = transitionOperator
+        print(segue.transitionOperator)
+    default: ()
+    }
+}
+```
+
+```Swift
 class SourceViewController: UIViewController {
     let number = 10
 }
