@@ -7,10 +7,11 @@
 //
 
 import XCTest
+import UIKit
 @testable import TransitionOperator
 
 class TransitionOperatorTests: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,16 +22,22 @@ class TransitionOperatorTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
+    func testOperate() {
+        let op = TransitionOperator { (source: SourceViewController, destination: DestinationViewController) -> () in
+            destination.number = source.number
         }
+
+        let destination = DestinationViewController(nibName: nil, bundle: nil)
+        op.operate(source: SourceViewController(nibName: nil, bundle: nil), destination: destination)
+        XCTAssertEqual(destination.number!, 10)
     }
     
+}
+
+class SourceViewController: UIViewController {
+    let number = 10
+}
+
+class DestinationViewController: UIViewController {
+    var number: Int?
 }
