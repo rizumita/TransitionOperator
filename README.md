@@ -4,10 +4,10 @@ Transition operator class operates transition from one view controller to other 
 ## Usage
 
 ```Swift
-func showNextPage() {
+func showNextPage(id: Int) {
     performSegueWithIdentifier("MySegue", sender: TransitionOperator {
-        (e: UIStoryboardSegue, s: SourceViewController, d: DestinationViewController) in
-        d.id = s.id
+        (e: UIStoryboardSegue, _, d: DestinationViewController) in
+        d.id = id
     })
 }
 
