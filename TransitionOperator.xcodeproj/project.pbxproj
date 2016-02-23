@@ -391,6 +391,7 @@
 				6A6DD8A81C7C54CD00B1DD35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6A6DD8A91C7C54CD00B1DD35 /* Build configuration list for PBXNativeTarget "TransitionOperatorTests" */ = {
 			isa = XCConfigurationList;
@@ -399,6 +400,7 @@
 				6A6DD8AB1C7C54CD00B1DD35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
