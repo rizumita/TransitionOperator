@@ -15,6 +15,8 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     switch sender {
     case let transitionOperator as TransitionOperatorType:
         segue.transitionOperator = transitionOperator
+    case let transitionPayload as TransitionPayloadType:
+        segue.transitionPayload = transitionPayload
     default: ()
     }
 }
@@ -41,7 +43,12 @@ let segue = UIStoryboardSegue(identifier: "playground", source: SourceViewContro
 segue.transitionOperator = TransitionOperator { (segue: UIStoryboardSegue, source: SourceViewController, destination: DestinationViewController) in
     destination.number = source.number
     print(destination.number)
+    print(segue.transitionPayload?.value)
 }
+
+let payload = TransitionPayload(value: 1)
+segue.transitionPayload = payload
+
 segue.perform()
 ```
 
