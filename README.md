@@ -43,7 +43,7 @@ let segue = UIStoryboardSegue(identifier: "playground", source: SourceViewContro
 segue.transitionOperator = TransitionOperator { (segue: UIStoryboardSegue, source: SourceViewController, destination: DestinationViewController) in
     destination.number = source.number
     print(destination.number)
-    print(segue.transitionPayload?.value)
+    print(segue.transitionPayload?.payloadValue)
 }
 
 let payload = TransitionPayload(value: 1)
