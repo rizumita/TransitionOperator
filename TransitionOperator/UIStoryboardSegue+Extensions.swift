@@ -9,28 +9,36 @@
 import Foundation
 import ObjectiveC
 
-var AssociatedObjectHandle: UInt8 = 0
+var OperatorAssociatedObjectHandle: UInt8 = 0
+var StaticOperatorAssociatedObjectHandle: UInt8 = 1
+var PayloadAssociatedObjectHandle: UInt8 = 2
 
 extension UIStoryboardSegue {
 
-    /*
-     * You need pass TransitionOperator<Source = UIViewController, Destination = UIViewController>
-     */
     public static var transitionOperator: TransitionOperatorType? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedObjectHandle) as? TransitionOperatorType
+            return objc_getAssociatedObject(self, &StaticOperatorAssociatedObjectHandle) as? TransitionOperatorType
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedObjectHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &StaticOperatorAssociatedObjectHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
     public var transitionOperator: TransitionOperatorType? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedObjectHandle) as? TransitionOperatorType
+            return objc_getAssociatedObject(self, &OperatorAssociatedObjectHandle) as? TransitionOperatorType
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedObjectHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &OperatorAssociatedObjectHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+
+    public var transitionPayload: TransitionPayloadType? {
+        get {
+            return objc_getAssociatedObject(self, &PayloadAssociatedObjectHandle) as? TransitionPayloadType
+        }
+        set {
+            objc_setAssociatedObject(self, &PayloadAssociatedObjectHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     

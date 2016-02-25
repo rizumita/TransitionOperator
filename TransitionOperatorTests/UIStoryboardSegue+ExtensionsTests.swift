@@ -134,4 +134,19 @@ class UIStoryboardSegue_ExtensionsTests: XCTestCase {
         waitForExpectationsWithTimeout(2.0) { _ in }
     }
 
+    func testTransitionPayload() {
+        let expectation = expectationWithDescription("testTransitionPayload")
+
+        let segue = UIStoryboardSegue(identifier: "test", source: UIViewController(nibName: nil, bundle: nil), destination: UIViewController(nibName: nil, bundle: nil)) {}
+        segue.transitionOperator = TransitionOperator { (s: UIStoryboardSegue, _, _) in
+            let value = s.transitionPayload?.value as! Int
+            XCTAssertEqual(value, 1)
+            expectation.fulfill()
+        }
+        segue.transitionPayload = TransitionPayload(value: 1)
+        segue.perform()
+
+        waitForExpectationsWithTimeout(2.0) { _ in }
+    }
+
 }
