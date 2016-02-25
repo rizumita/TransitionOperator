@@ -23,13 +23,17 @@ class TransitionOperatorTests: XCTestCase {
     }
     
     func testOperate() {
-        let op = TransitionOperator { (executor: AnyObject, source: SourceViewController, destination: DestinationViewController) -> () in
-            XCTAssertTrue(executor is TransitionOperatorTests)
+        class TestExecutor: TransitionExecutorType {
+            var transitionOperator: TransitionOperatorType?
+            var transitionPayload: TransitionPayloadType?
+        }
+        let op = TransitionOperator { (executor: TestExecutor, source: SourceViewController, destination: DestinationViewController) -> () in
+            XCTAssertTrue(executor.dynamicType == TestExecutor.self)
             destination.number = source.number
         }
 
         let destination = DestinationViewController(nibName: nil, bundle: nil)
-        op.operate(executor: self, source: SourceViewController(nibName: nil, bundle: nil), destination: destination)
+        op.operate(executor: TestExecutor(), source: SourceViewController(nibName: nil, bundle: nil), destination: destination)
         XCTAssertEqual(destination.number!, 10)
     }
     

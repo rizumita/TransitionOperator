@@ -10,11 +10,11 @@ import Foundation
 
 public protocol TransitionOperatorType: class {
     
-    func operate(executor executor: Any, source: UIViewController, destination: UIViewController)
+    func operate(executor executor: TransitionExecutorType, source: UIViewController, destination: UIViewController)
     
 }
 
-public class TransitionOperator<Executor: Any, Source: UIViewController, Destination: UIViewController>: TransitionOperatorType {
+public class TransitionOperator<Executor: TransitionExecutorType, Source: UIViewController, Destination: UIViewController>: TransitionOperatorType {
     
     public typealias Operation = (Executor, Source, Destination) -> ()
     
@@ -24,7 +24,7 @@ public class TransitionOperator<Executor: Any, Source: UIViewController, Destina
         self.operation = operation
     }
     
-    public func operate(executor executor: Any, source: UIViewController, destination: UIViewController) {
+    public func operate(executor executor: TransitionExecutorType, source: UIViewController, destination: UIViewController) {
         operation(executor as! Executor, source as! Source, destination as! Destination)
     }
     
