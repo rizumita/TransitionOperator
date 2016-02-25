@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="C4F-99-Rc9">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="0bZ-e5-juh">
+            <objects>
+                <navigationController id="C4F-99-Rc9" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AE8-YK-xks">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8hh-ns-Jo1" kind="relationship" relationship="rootViewController" id="e53-v9-bxp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r49-KJ-7ta" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="645" y="717"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="UIq-RD-Qh3">
+            <objects>
+                <viewController id="8hh-ns-Jo1" customClass="ViewController" customModule="TransitionOperatorSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Af4-78-gR4"/>
+                        <viewControllerLayoutGuide type="bottom" id="0VV-Nz-i3k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ocv-ot-iA0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bhk-qB-DmH">
+                                <rect key="frame" x="200" y="89" width="150" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AoP-EO-MSa">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                        <state key="normal" title="Storyboard Reference"/>
+                                        <connections>
+                                            <segue destination="pmO-0j-pco" kind="show" identifier="DestinationSegue" id="qwy-Oh-Rzn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwM-5f-0ly">
+                                <rect key="frame" x="200" y="143" width="150" height="30"/>
+                                <state key="normal" title="IBAction"/>
+                                <connections>
+                                    <action selector="action:" destination="8hh-ns-Jo1" eventType="touchUpInside" id="xBN-u1-HCp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bhk-qB-DmH" firstAttribute="centerX" secondItem="ocv-ot-iA0" secondAttribute="centerX" id="EY1-8R-zPW"/>
+                            <constraint firstItem="rwM-5f-0ly" firstAttribute="centerX" secondItem="ocv-ot-iA0" secondAttribute="centerX" id="L5w-UY-Hwx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ldk-Lh-xhK"/>
+                    <connections>
+                        <segue destination="pmO-0j-pco" kind="show" identifier="ActionDestinationSegue" id="PVe-WV-ryi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mCX-Ts-ElO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1381" y="717"/>
+        </scene>
+        <!--Destination-->
+        <scene sceneID="Ods-8T-33a">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Destination" id="pmO-0j-pco" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y0r-k6-OWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1860.5" y="717"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="PVe-WV-ryi"/>
+    </inferredMetricsTieBreakers>
+</document>
