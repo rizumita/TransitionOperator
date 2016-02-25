@@ -7,16 +7,16 @@ import Foundation
 
 public protocol TransitionPayloadType: class {
 
-    var value: Any { get }
+    var payloadValue: Any? { get }
 
 }
 
 public class TransitionPayload: TransitionPayloadType {
 
-    public var value: Any
+    public var payloadValue: Any?
 
-    public init<Value: Any>(value: Value) {
-        self.value = value
+    public init(value: Any?) {
+        payloadValue = value
     }
 
 }

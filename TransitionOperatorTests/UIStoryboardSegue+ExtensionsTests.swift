@@ -139,7 +139,7 @@ class UIStoryboardSegue_ExtensionsTests: XCTestCase {
 
         let segue = UIStoryboardSegue(identifier: "test", source: UIViewController(nibName: nil, bundle: nil), destination: UIViewController(nibName: nil, bundle: nil)) {}
         segue.transitionOperator = TransitionOperator { (s: UIStoryboardSegue, _, _) in
-            let value = s.transitionPayload?.value as! Int
+            let value = s.transitionPayload?.payloadValue as! Int
             XCTAssertEqual(value, 1)
             expectation.fulfill()
         }
