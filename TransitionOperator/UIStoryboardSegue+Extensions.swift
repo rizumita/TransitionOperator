@@ -13,7 +13,7 @@ var OperatorAssociatedObjectHandle: UInt8 = 0
 var StaticOperatorAssociatedObjectHandle: UInt8 = 1
 var PayloadAssociatedObjectHandle: UInt8 = 2
 
-extension UIStoryboardSegue: TransitionExecutorType {
+extension UIStoryboardSegue {
 
     public static var transitionOperator: TransitionOperatorType? {
         get {

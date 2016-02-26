@@ -6,15 +6,15 @@
 //  Copyright © 2016年 CAPH TECH. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public protocol TransitionOperatorType: class {
     
-    func operate(executor executor: TransitionExecutorType, source: UIViewController, destination: UIViewController)
+    func operate(executor executor: UIStoryboardSegue, source: UIViewController, destination: UIViewController)
     
 }
 
-public class TransitionOperator<Executor: TransitionExecutorType, Source: UIViewController, Destination: UIViewController>: TransitionOperatorType {
+public class TransitionOperator<Executor: UIStoryboardSegue, Source: UIViewController, Destination: UIViewController>: TransitionOperatorType {
     
     public typealias Operation = (Executor, Source, Destination) -> ()
     
@@ -24,7 +24,7 @@ public class TransitionOperator<Executor: TransitionExecutorType, Source: UIView
         self.operation = operation
     }
     
-    public func operate(executor executor: TransitionExecutorType, source: UIViewController, destination: UIViewController) {
+    public func operate(executor executor: UIStoryboardSegue, source: UIViewController, destination: UIViewController) {
         operation(executor as! Executor, source as! Source, destination as! Destination)
     }
     

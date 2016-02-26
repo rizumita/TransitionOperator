@@ -9,7 +9,7 @@
 import Foundation
 import TransitionOperator
 
-var storyboardReferenceDestinationTransitionOperator: TransitionOperatorType = TransitionOperator { (segue: UIStoryboardSegue, _, destination: DestinationViewController) in
+var storyboardReferenceDestinationTransitionOperator: TransitionOperatorType = TransitionOperator { (_, _, destination: DestinationViewController) in
     destination.text = "Storyboard Reference"
 }
 

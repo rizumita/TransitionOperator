@@ -29,7 +29,6 @@
 		6AFE42041C7F4B2600019C21 /* WireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE42031C7F4B2600019C21 /* WireframeTests.swift */; };
 		6AFE42051C7F4B6900019C21 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD838411C7F42EF0070F103 /* Swinject.framework */; };
 		CB876974F71B84D27C7406E8 /* TransitionPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876247AEB23B753364CFA0 /* TransitionPayload.swift */; };
-		CB876E765DD942F70ABF841F /* TransitionExecutorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876B5F17E75B51A45FCC0A /* TransitionExecutorType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +83,6 @@
 		6AFE42011C7F4A3700019C21 /* WireframeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireframeType.swift; sourceTree = "<group>"; };
 		6AFE42031C7F4B2600019C21 /* WireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireframeTests.swift; sourceTree = "<group>"; };
 		CB876247AEB23B753364CFA0 /* TransitionPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionPayload.swift; sourceTree = "<group>"; };
-		CB876B5F17E75B51A45FCC0A /* TransitionExecutorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionExecutorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +151,6 @@
 				6A6DD8AC1C7C551B00B1DD35 /* TransitionOperator.swift */,
 				6A6DD8AE1C7C555E00B1DD35 /* UIStoryboardSegue+Extensions.swift */,
 				CB876247AEB23B753364CFA0 /* TransitionPayload.swift */,
-				CB876B5F17E75B51A45FCC0A /* TransitionExecutorType.swift */,
 			);
 			path = TransitionOperator;
 			sourceTree = "<group>";
@@ -399,7 +396,6 @@
 				6A6DD8AF1C7C555E00B1DD35 /* UIStoryboardSegue+Extensions.swift in Sources */,
 				6A6DD8AD1C7C551B00B1DD35 /* TransitionOperator.swift in Sources */,
 				CB876974F71B84D27C7406E8 /* TransitionPayload.swift in Sources */,
-				CB876E765DD942F70ABF841F /* TransitionExecutorType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
