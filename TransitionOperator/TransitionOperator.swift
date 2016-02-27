@@ -20,7 +20,7 @@ public class TransitionOperator<Executor: TransitionExecutorType, Source, Destin
     
     let operation: Operation
     
-    public init(operation: Operation) {
+    public init(_ operation: Operation) {
         self.operation = operation
     }
     
