@@ -30,7 +30,7 @@ class Assembly: AssemblyType {
         }
 
         UIStoryboardSegue.transitionOperator = TransitionOperator {
-            (segue: UIStoryboardSegue, _, _) in
+            (segue: UIStoryboardSegue, source: Any, destination: Any) in
             if let op = assembler.resolver.resolve(TransitionOperatorType.self, name: segue.identifier) {
                 segue.transitionOperator = op
             }

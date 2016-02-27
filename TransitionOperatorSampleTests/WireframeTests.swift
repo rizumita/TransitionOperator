@@ -41,7 +41,7 @@ class WireframeTests: XCTestCase {
         }
         
         UIStoryboardSegue.transitionOperator = TransitionOperator {
-            (segue: UIStoryboardSegue, _, _) in
+            (segue: UIStoryboardSegue, source: Any, destination: Any) in
             if let op = container.resolve(TransitionOperatorType.self, name: segue.identifier) {
                 segue.transitionOperator = op
             }
