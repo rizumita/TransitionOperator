@@ -15,6 +15,7 @@ class TransitionOperatorTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        @IBOutlet weak var numberLabel: UILabel!
     }
     
     override func tearDown() {
@@ -23,15 +24,17 @@ class TransitionOperatorTests: XCTestCase {
     }
     
     func testOperate() {
-        class TestSegue: UIStoryboardSegue {
+        class TestExecutor: TransitionExecutorType {
+            var transitionOperator: TransitionOperatorType?
+            var transitionPayload: TransitionPayloadType?
+        }
+        let op = TransitionOperator { (executor: TestExecutor, source: SourceViewController, destination: DestinationViewController) -> () in
+            XCTAssertTrue(executor.dynamicType == TestExecutor.self)
+            destination.number = source.number
         }
 
         let destination = DestinationViewController(nibName: nil, bundle: nil)
-        let segue = TestSegue(identifier: "test", source: SourceViewController(nibName: nil, bundle: nil), destination: destination) {}
-        segue.transitionOperator = TransitionOperator { (_, source: SourceViewController, destination: DestinationViewController) -> () in
-            destination.number = source.number
-        }
-        segue.perform()
+        op.operate(executor: TestExecutor(), source: SourceViewController(nibName: nil, bundle: nil), destination: destination)
         XCTAssertEqual(destination.number!, 10)
     }
     

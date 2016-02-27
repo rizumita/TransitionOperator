@@ -64,7 +64,7 @@ class UIStoryboardSegue_ExtensionsTests: XCTestCase {
 
         let expectation = expectationWithDescription("testStaticTransitionOperator")
 
-        UIStoryboardSegue.transitionOperator = TransitionOperator { (_, _, _) in
+        UIStoryboardSegue.transitionOperator = TransitionOperator { (segue: UIStoryboardSegue, _, _) in
             XCTFail()
         }
 
@@ -84,7 +84,7 @@ class UIStoryboardSegue_ExtensionsTests: XCTestCase {
 
         let expectation = expectationWithDescription("testStaticTransitionOperator")
 
-        SubSegue.transitionOperator = TransitionOperator { (_, _, _) in
+        SubSegue.transitionOperator = TransitionOperator { (segue: SubSegue, _, _) in
             XCTFail()
         }
 
@@ -107,7 +107,7 @@ class UIStoryboardSegue_ExtensionsTests: XCTestCase {
         let segue = UIStoryboardSegue(identifier: "test", source: source, destination: destination) {
             source.presentViewController(destination, animated: false, completion: nil)
         }
-        segue.transitionOperator = TransitionOperator { (_, s: SourceViewController, d: DestinationViewController) in
+        segue.transitionOperator = TransitionOperator { (segue: UIStoryboardSegue, s: SourceViewController, d: DestinationViewController) in
             destination.number = source.number
             expectation.fulfill()
         }
@@ -126,7 +126,7 @@ class UIStoryboardSegue_ExtensionsTests: XCTestCase {
         let segue = SubSegue(identifier: "test", source: source, destination: destination) {
             source.presentViewController(destination, animated: false, completion: nil)
         }
-        segue.transitionOperator = TransitionOperator { (_, _, _) in
+        segue.transitionOperator = TransitionOperator { (segue: SubSegue, _, _) in
             expectation.fulfill()
         }
         segue.perform()
