@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A20BC091C824108005ADB2A /* CompositeTransitionOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A20BC081C824108005ADB2A /* CompositeTransitionOperator.swift */; };
+		6A20BC0B1C82421B005ADB2A /* CompositeTransitionOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A20BC0A1C82421B005ADB2A /* CompositeTransitionOperatorTests.swift */; };
 		6A6DD8961C7C54CD00B1DD35 /* TransitionOperator.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A6DD8951C7C54CD00B1DD35 /* TransitionOperator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6A6DD89D1C7C54CD00B1DD35 /* TransitionOperator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A6DD8921C7C54CD00B1DD35 /* TransitionOperator.framework */; };
 		6A6DD8A21C7C54CD00B1DD35 /* TransitionOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6DD8A11C7C54CD00B1DD35 /* TransitionOperatorTests.swift */; };
@@ -57,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A20BC081C824108005ADB2A /* CompositeTransitionOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeTransitionOperator.swift; sourceTree = "<group>"; };
+		6A20BC0A1C82421B005ADB2A /* CompositeTransitionOperatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeTransitionOperatorTests.swift; sourceTree = "<group>"; };
 		6A6DD8921C7C54CD00B1DD35 /* TransitionOperator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TransitionOperator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A6DD8951C7C54CD00B1DD35 /* TransitionOperator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionOperator.h; sourceTree = "<group>"; };
 		6A6DD8971C7C54CD00B1DD35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 				6A6DD8951C7C54CD00B1DD35 /* TransitionOperator.h */,
 				6A6DD8971C7C54CD00B1DD35 /* Info.plist */,
 				6A6DD8AC1C7C551B00B1DD35 /* TransitionOperator.swift */,
+				6A20BC081C824108005ADB2A /* CompositeTransitionOperator.swift */,
 				6A6DD8AE1C7C555E00B1DD35 /* UIStoryboardSegue+Extensions.swift */,
 				CB876247AEB23B753364CFA0 /* TransitionPayload.swift */,
 				CB876B5F17E75B51A45FCC0A /* TransitionExecutorType.swift */,
@@ -162,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				6A6DD8A11C7C54CD00B1DD35 /* TransitionOperatorTests.swift */,
+				6A20BC0A1C82421B005ADB2A /* CompositeTransitionOperatorTests.swift */,
 				6A6DD8B01C7C5B1100B1DD35 /* UIStoryboardSegue+ExtensionsTests.swift */,
 				6A6DD8A31C7C54CD00B1DD35 /* Info.plist */,
 			);
@@ -397,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A6DD8AF1C7C555E00B1DD35 /* UIStoryboardSegue+Extensions.swift in Sources */,
+				6A20BC091C824108005ADB2A /* CompositeTransitionOperator.swift in Sources */,
 				6A6DD8AD1C7C551B00B1DD35 /* TransitionOperator.swift in Sources */,
 				CB876974F71B84D27C7406E8 /* TransitionPayload.swift in Sources */,
 				CB876E765DD942F70ABF841F /* TransitionExecutorType.swift in Sources */,
@@ -408,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A6DD8B11C7C5B1100B1DD35 /* UIStoryboardSegue+ExtensionsTests.swift in Sources */,
+				6A20BC0B1C82421B005ADB2A /* CompositeTransitionOperatorTests.swift in Sources */,
 				6A6DD8A21C7C54CD00B1DD35 /* TransitionOperatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
