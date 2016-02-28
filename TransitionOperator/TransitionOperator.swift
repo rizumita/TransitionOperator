@@ -10,13 +10,13 @@ import Foundation
 
 public protocol TransitionOperatorType: class {
     
-    func operate(executor executor: TransitionExecutorType, source: Any, destination: Any)
+    func operate(executor executor: TransitionExecutorType, source: Any, destination: Any) -> Bool
     
 }
 
 public class TransitionOperator<Executor: TransitionExecutorType, Source, Destination>: TransitionOperatorType {
     
-    public typealias Operation = (Executor, Source, Destination) -> ()
+    public typealias Operation = (Executor, Source, Destination) throws -> ()
     
     let operation: Operation
     
@@ -24,8 +24,14 @@ public class TransitionOperator<Executor: TransitionExecutorType, Source, Destin
         self.operation = operation
     }
     
-    public func operate(executor executor: TransitionExecutorType, source: Any, destination: Any) {
-        operation(executor as! Executor, source as! Source, destination as! Destination)
+    public func operate(executor executor: TransitionExecutorType, source: Any, destination: Any) -> Bool {
+        do {
+            try operation(executor as! Executor, source as! Source, destination as! Destination)
+            return true
+        }
+        catch {
+            return false
+        }
     }
     
 }

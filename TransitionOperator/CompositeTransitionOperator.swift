@@ -16,9 +16,11 @@ public class CompositeTransitionOperator: TransitionOperatorType, ArrayLiteralCo
         operators = elements
     }
     
+    public var forced: Bool = false
+    
     private var operators: [Element] = []
     
-    init(operators: [Element]) {
+    init(operators: [Element], forced: Bool = false) {
         self.operators = operators
     }
 
@@ -26,10 +28,13 @@ public class CompositeTransitionOperator: TransitionOperatorType, ArrayLiteralCo
         operators.append(nextOperator)
     }
     
-    public func operate(executor executor: TransitionExecutorType, source: Any, destination: Any) {
-        operators.forEach { op in
-            op.operate(executor: executor, source: source, destination: destination)
+    public func operate(executor executor: TransitionExecutorType, source: Any, destination: Any) -> Bool {
+        for op in operators {
+            if op.operate(executor: executor, source: source, destination: destination) == false && !forced {
+                return false
+            }
         }
+        return true
     }
     
 }
