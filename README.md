@@ -3,24 +3,7 @@ Transition operator class operates transition from one view controller to other 
 
 ## Usage
 
-```Swift
-func showNextPage(id: Int) {
-    performSegueWithIdentifier("MySegue", sender: TransitionOperator {
-        (e: UIStoryboardSegue, _, d: DestinationViewController) in
-        d.id = id
-    })
-}
-
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    switch sender {
-    case let transitionOperator as TransitionOperatorType:
-        segue.transitionOperator = transitionOperator
-    case let transitionPayload as TransitionPayloadType:
-        segue.transitionPayload = transitionPayload
-    default: ()
-    }
-}
-```
+The project has real usage as a sample app that inject a transition operator to segue by DI container library named 'Swinject'. If you want to know power of this library, please read that sample project and sample project's unit tests codes.
 
 ```Swift
 class SourceViewController: UIViewController {
