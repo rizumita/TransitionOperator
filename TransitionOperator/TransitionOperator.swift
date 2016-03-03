@@ -26,8 +26,13 @@ public class TransitionOperator<Executor: TransitionExecutorType, Source, Destin
     
     public func operate(executor executor: TransitionExecutorType, source: Any, destination: Any) -> Bool {
         do {
-            try operation(executor as! Executor, source as! Source, destination as! Destination)
-            return true
+            switch (executor, source, destination) {
+            case (let e as Executor, let s as Source, let d as Destination):
+                try operation(e, s, d)
+                return true
+            default:
+                return false
+            }
         }
         catch {
             return false
