@@ -21,12 +21,13 @@ class TransitionOperatorTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+
+    class TestExecutor: TransitionExecutorType {
+        var transitionOperator: TransitionOperatorType?
+        var transitionPayload: TransitionPayloadType?
+    }
     
     func testOperate() {
-        class TestExecutor: TransitionExecutorType {
-            var transitionOperator: TransitionOperatorType?
-            var transitionPayload: TransitionPayloadType?
-        }
         let op = TransitionOperator { (executor: TestExecutor, source: SourceViewController, destination: DestinationViewController) -> () in
             XCTAssertTrue(executor.dynamicType == TestExecutor.self)
             destination.number = source.number
@@ -35,6 +36,17 @@ class TransitionOperatorTests: XCTestCase {
         let destination = DestinationViewController(nibName: nil, bundle: nil)
         op.operate(executor: TestExecutor(), source: SourceViewController(nibName: nil, bundle: nil), destination: destination)
         XCTAssertEqual(destination.number!, 10)
+    }
+    
+    func testUnsuitableType() {
+        class UnsuitableViewController: UIViewController {}
+        
+        let op = TransitionOperator { (executor: TestExecutor, source: SourceViewController, destination: DestinationViewController) -> () in
+            XCTFail()
+        }
+        
+        let destination = UnsuitableViewController()
+        op.operate(executor: TestExecutor(), source: SourceViewController(nibName: nil, bundle: nil), destination: destination)
     }
     
 }
