@@ -3,7 +3,7 @@ Transition operator class operates transition from one view controller to other 
 
 ## Usage
 
-The project has real usage as a sample app. If you want to know power of this library, please read that sample project and sample project's unit tests.
+The project has real usage as a sample app. If you want to know power of this library, please read that sample project and sample project's unit tests codes.
 
 ```Swift
 func showNextPage(id: Int) {
