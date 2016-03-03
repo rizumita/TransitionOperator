@@ -14,10 +14,10 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>TransitionOperatorSample.xcscheme</key>
+		<key>TransitionOperatorSample.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
