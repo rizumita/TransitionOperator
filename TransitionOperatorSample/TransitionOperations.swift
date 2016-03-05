@@ -9,11 +9,11 @@
 import Foundation
 import TransitionOperator
 
-var storyboardReferenceDestinationTransitionOperator: TransitionOperatorType = TransitionOperator { (segue: UIStoryboardSegue, source: Any, destination: DestinationViewController) in
+var storyboardReferenceDestinationTransitionOperator: TransitionOperatorType = TransitionOperator { (segue: TransitionExecutorSegue, source: Any, destination: DestinationViewController) in
     destination.text = "Storyboard Reference"
 }
 
-var actionDestinationTransitionOperator: TransitionOperatorType = TransitionOperator { (segue: UIStoryboardSegue, source: Any, destination: DestinationViewController) in
+var actionDestinationTransitionOperator: TransitionOperatorType = TransitionOperator { (segue: TransitionExecutorSegue, source: Any, destination: DestinationViewController) in
     if let text = segue.transitionPayload?.payloadValue as? String {
         destination.text = text
     }

@@ -25,11 +25,11 @@ protocol _WireframeType: class {
 extension _WireframeType {
     
     func prepare(forSegue segue: UIStoryboardSegue, sender: AnyObject?) {
-        switch sender {
-        case let .Some(op as TransitionOperatorType):
-            segue.transitionOperator = op
-        case let .Some(payload as TransitionPayloadType):
-            segue.transitionPayload = payload
+        switch (segue, sender) {
+        case (let s as TransitionExecutorSegue, let .Some(op as TransitionOperatorType)):
+            s.transitionOperator = op
+        case (let s as TransitionExecutorSegue, let .Some(payload as TransitionPayloadType)):
+            s.transitionPayload = payload
         default: ()
         }
     }

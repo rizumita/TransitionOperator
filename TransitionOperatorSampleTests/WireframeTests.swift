@@ -32,7 +32,7 @@ class WireframeTests: XCTestCase {
         container.register(TransitionOperatorType.self, name: "ActionDestinationSegue") {
             r in
             return TransitionOperator {
-                (segue: UIStoryboardSegue, s: UIViewController, d: UIViewController) in
+                (segue: TransitionExecutorSegue, s: UIViewController, d: UIViewController) in
                 result = segue.transitionPayload?.payloadValue as? String
                 XCTAssertEqual(result!, "test_text")
                 XCTAssertTrue(d is DestinationViewController)
@@ -40,8 +40,8 @@ class WireframeTests: XCTestCase {
             }
         }
         
-        UIStoryboardSegue.transitionOperator = TransitionOperator {
-            (segue: UIStoryboardSegue, source: Any, destination: Any) in
+        TransitionExecutorSegue.transitionOperator = TransitionOperator {
+            (segue: TransitionExecutorSegue, source: Any, destination: Any) in
             if let op = container.resolve(TransitionOperatorType.self, name: segue.identifier) {
                 segue.transitionOperator = op
             }

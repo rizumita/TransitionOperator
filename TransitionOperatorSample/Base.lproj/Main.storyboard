@@ -40,7 +40,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
                                         <state key="normal" title="Storyboard Reference"/>
                                         <connections>
-                                            <segue destination="pmO-0j-pco" kind="show" identifier="DestinationSegue" id="qwy-Oh-Rzn"/>
+                                            <segue destination="pmO-0j-pco" kind="show" identifier="DestinationSegue" customClass="TransitionExecutorSegue" customModule="TransitionOperator" id="qwy-Oh-Rzn"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -61,7 +61,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ldk-Lh-xhK"/>
                     <connections>
-                        <segue destination="pmO-0j-pco" kind="show" identifier="ActionDestinationSegue" id="PVe-WV-ryi"/>
+                        <segue destination="pmO-0j-pco" kind="show" identifier="ActionDestinationSegue" customClass="TransitionExecutorSegue" customModule="TransitionOperator" id="PVe-WV-ryi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCX-Ts-ElO" userLabel="First Responder" sceneMemberID="firstResponder"/>

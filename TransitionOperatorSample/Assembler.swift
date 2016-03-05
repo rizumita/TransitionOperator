@@ -29,8 +29,8 @@ class Assembly: AssemblyType {
             return actionDestinationTransitionOperator
         }
 
-        UIStoryboardSegue.transitionOperator = TransitionOperator {
-            (segue: UIStoryboardSegue, source: Any, destination: Any) in
+        TransitionExecutorSegue.transitionOperator = TransitionOperator {
+            (segue: TransitionExecutorSegue, source: Any, destination: Any) in
             if let op = assembler.resolver.resolve(TransitionOperatorType.self, name: segue.identifier) {
                 segue.transitionOperator = op
             }
