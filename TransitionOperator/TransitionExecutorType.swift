@@ -5,7 +5,7 @@
 
 import Foundation
 
-public protocol TransitionExecutorType {
+public protocol TransitionExecutorType: class {
 
     var transitionOperator: TransitionOperatorType? { get set }
 
